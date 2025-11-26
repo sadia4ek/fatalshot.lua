@@ -61,13 +61,13 @@ local sections = {
     soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-sections.another:AddBind({
+local bind = sections.another:AddBind({
     text = "TrashTalk",
-    flag = "tht",
-    nomouse = false,
-    noindicator = false,
-    tooltip = "Say random message on bind",
-    mode = "Toogle",
+    flag = "Key_1",
+    nomouse = true,
+    noindicator = true,
+    tooltip = "Send random trash talk in chat",
+    mode = "toggle",
     bind = Enum.KeyCode.H,
     risky = false,
     keycallback = function(v)
