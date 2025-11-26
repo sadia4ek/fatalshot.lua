@@ -64,9 +64,9 @@ local sections = {
 sections.anothersec:AddToggle({
 	enabled = true,
 	text = "TrashTalk",
-	flag = "Toggle_1",
-	tooltip = "Tooltip1",
-	risky = true, -- turns text to red and sets label to risky
+	flag = "trashtalkt",
+	tooltip = "Send message on bind",
+	risky = false, -- turns text to red and sets label to risky
 	callback = function(lol)
         local trashTalkword = {
             "bro aiming at the moon?",
@@ -126,10 +126,10 @@ sections.anothersec:AddToggle({
 })
 
 sections.Section1:AddBind({
-	text = "Keybind",
-	flag = "Key_1",
-	nomouse = true,
-	noindicator = true,
+	text = "Trashtalk Bind",
+	flag = "trashtalkb",
+	nomouse = false,
+	noindicator = false,
 	tooltip = "Tooltip1",
 	mode = "toggle",
 	bind = Enum.KeyCode.Q,
