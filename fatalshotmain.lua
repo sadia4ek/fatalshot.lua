@@ -57,20 +57,84 @@ local sections = {
     aa_aim = tabs.aatab:AddSection("Aim", 1),
     fakepitch = tabs.aatab:AddSection("Fake Pitch", 2),
     -- misc tab sections
-    another = tabs.misctab:AddSection("Another", 1),
+    anothersec = tabs.misctab:AddSection("Another", 1),
     soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-sections.another:AddBind({
-    text = "TrashTalk",
-    flag = "trashtalkf",
-    nomouse = true,
-    noindicator = true,
-    tooltip = "Send random message on chat",
-    mode = "toggle",
-    bind = Enum.KeyCode.Q,
-    risky = false,
-    keycallback = function(v)
+sections.anothersec:AddToggle({
+	enabled = true,
+	text = "TrashTalk",
+	flag = "Toggle_1",
+	tooltip = "Tooltip1",
+	risky = true, -- turns text to red and sets label to risky
+	callback = function(lol)
+        local trashTalkword = {
+            "bro aiming at the moon?",
+            "nice try… but no",
+            "outplayed lol",
+            "bro folding like paper",
+            "you lagging or skill issue?",
+            "I wasn’t even trying",
+            "my pet rock plays better",
+            "still loading?",
+            "this is embarrassing",
+            "why so slow?",
+            "NPC detected",
+            "bot behavior",
+            "bro forgot to enable brain",
+            "cry about it",
+            "rent free",
+            "you good? hello?",
+            "bro blinked and died",
+            "touch grass pls",
+            "your aim is on vacation",
+            "deleted from existence",
+            "too easy",
+            "bro thinks he's him",
+            "respawn and try again",
+            "what was the plan??",
+            "you're not serious right?",
+            "bro playing on toaster",
+            "outskilled",
+            "nah this can't be real",
+            "thanks for the free kill",
+            "matchmaking did you dirty",
+            "bro panicked",
+            "gg = get good",
+            "who are you aiming at??",
+            "I’ll wait until you hit one shot",
+            "lost in the sauce",
+            "bro moving in slow motion",
+            "don’t uninstall pls 😭",
+            "no way you missed that",
+            "your reactions expired",
+            "I’m playing with 1 FPS and still winning",
+            "bro fighting ghosts",
+            "aim.exe has stopped working",
+            "I sneezed and won",
+            "how are you losing this?",
+            "bro playing with oven controls",
+        }
+        if v then
+            -- Get random message from table
+            local randomMsg = trashTalkword[math.random(1, #trashTalkword)]
+            
+            -- Send to game chat
+            game:GetService("ReplicatedStorage").TextChatService.SayMessageRequest:FireServer(randomMsg, "All")
+        end
+    end
+})
+
+sections.Section1:AddBind({
+	text = "Keybind",
+	flag = "Key_1",
+	nomouse = true,
+	noindicator = true,
+	tooltip = "Tooltip1",
+	mode = "toggle",
+	bind = Enum.KeyCode.Q,
+	risky = false,
+	keycallback = function(v)
         local trashTalkword = {
             "bro aiming at the moon?",
             "nice try… but no",
