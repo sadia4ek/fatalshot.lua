@@ -57,7 +57,11 @@ local sections = {
 	aimsection = tabs.aatab:AddSection("Aim", 1),
 	fakepitchsection = tabs.aatab:AddSection("Fake Pitch", 2),
 	-- misc tab sections
-sections.Section1:AddBind({
+	anothersection = tabs.misctab:AddSection("Another", 1),
+	soon = tabs.misctab:AddSection("Soon...", 2),
+}
+
+sections.misctab:AddBind({
     text = "Keybind",
     flag = "Key_1",
     nomouse = true,
