@@ -25,9 +25,6 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drill
 
 library:init()
 
-с
-
-
 local randomWord = WordList[math.random(#WordList)]
 local mainwindow = library.NewWindow({
     title = "FatalShot | " .. randomWord,
