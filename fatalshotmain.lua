@@ -1,6 +1,6 @@
 -- Credits To The Original Devs @xz, @goof
 getgenv().Config = {
-	Invite = "t.me/worldowner3",
+	Invite = "3sP26VZy",
 	Version = "1.0",
 }
 
