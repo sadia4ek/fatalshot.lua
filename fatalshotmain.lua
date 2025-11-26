@@ -51,8 +51,8 @@ local sections = {
     -- esp tab sections
     esp_players = tabs.esptab:AddSection("Player Esp", 1),
     esp_chams = tabs.esptab:AddSection("Player Chams", 2),
-    esp_items = tabs.esptab:AddSection("Items esp", 3),
-    chams_items = tabs.esptab:AddSection("Items chams", 4),
+    esp_items = tabs.esptab:AddSection("Items esp", 1),
+    chams_items = tabs.esptab:AddSection("Items chams", 2),
     -- aa tab sections
     aa_aim = tabs.aatab:AddSection("Aim", 1),
     fakepitch = tabs.aatab:AddSection("Fake Pitch", 2),
@@ -61,9 +61,9 @@ local sections = {
     soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-sections.Section1:AddBind({
+sections.another:AddBind({
     text = "TrashTalk",
-    flag = "trashtalk",
+    flag = "trashtalkf",
     nomouse = true,
     noindicator = true,
     tooltip = "Send random message on chat",
