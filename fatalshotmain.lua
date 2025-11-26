@@ -29,17 +29,17 @@ library:init()
 
 
 local randomWord = WordList[math.random(#WordList)]
-local Window1 = library.NewWindow({
+local mainwindow = library.NewWindow({
     title = "FatalShot | " .. randomWord,
     size = UDim2.new(0, 510, 0.6, 6)
 })
 
-local AimTab = Window1:AddTab("Aim")
+local AimTab = mainwindow:AddTab("Aim")
 local TabSettings = library:CreateSettingsTab(Window1)
-local AimSettingsSection = Tab1:AddSection("Aim Settings", 1)
+local AimSettingsSection = AimTab:AddSection("Aim Settings", 1)
 
 
-Section1:AddToggle({
+AimSettingsSection:AddToggle({
     text = "Aim",
     state = false,
     risky = true,
