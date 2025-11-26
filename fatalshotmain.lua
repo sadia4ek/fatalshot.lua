@@ -70,7 +70,7 @@ sections.Section1:AddBind({
     mode = "toggle",
     bind = Enum.KeyCode.Q,
     risky = false,
-    keycallback = function()
+    keycallback = function(v)
         local trashTalk = {
             "bro aiming at the moon?",
             "nice try… but no",
