@@ -62,70 +62,68 @@ local sections = {
 }
 
 sections.Section1:AddBind({
-	text = "TrashTalk",
-	flag = "trashtalk",
-	nomouse = true,
-	noindicator = true,
-	tooltip = "Send random message on chat",
-	mode = "toggle",
-	bind = Enum.KeyCode.Q,
-	risky = false,
-	keycallback = function(v)
-	local trashTalk = {
-	    "bro aiming at the moon?",
-	    "nice try… but no",
-	    "outplayed lol",
-	    "bro folding like paper",
-	    "you lagging or skill issue?",
-	    "I wasn’t even trying",
-	    "my pet rock plays better",
-	    "still loading?",
-	    "this is embarrassing",
-	    "why so slow?",
-	    "NPC detected",
-	    "bot behavior",
-	    "bro forgot to enable brain",
-	    "cry about it",
-	    "rent free",
-	    "you good? hello?",
-	    "bro blinked and died",
-	    "touch grass pls",
-	    "your aim is on vacation",
-	    "deleted from existence",
-	    "too easy",
-	    "bro thinks he's him",
-	    "respawn and try again",
-	    "what was the plan??",
-	    "you're not serious right?",
-	    "bro playing on toaster",
-	    "outskilled",
-	    "nah this can't be real",
-	    "thanks for the free kill",
-	    "matchmaking did you dirty",
-	    "bro panicked",
-	    "gg = get good",
-	    "who are you aiming at??",
-	    "I’ll wait until you hit one shot",
-	    "lost in the sauce",
-	    "bro moving in slow motion",
-	    "don’t uninstall pls 😭",
-	    "no way you missed that",
-	    "your reactions expired",
-	    "I’m playing with 1 FPS and still winning",
-	    "bro fighting ghosts",
-	    "aim.exe has stopped working",
-	    "I sneezed and won",
-	    "how are you losing this?",
-	    "bro playing with oven controls",
-	}
-	local ChatEvent = game.ReplicatedStorage.Chat.ChatEvents.SayMessage
-	local function sendTrashTalk()
-	    local randomIndex = math.random(1, #trashTalk)
-	    local message = trashTalk[randomIndex]
-	    ChatEvent:FireServer(message, "All")
-	    print("Trash talk sent: " .. message)
-	end
-	sendTrashTalk()
+    text = "TrashTalk",
+    flag = "trashtalk",
+    nomouse = true,
+    noindicator = true,
+    tooltip = "Send random message on chat",
+    mode = "toggle",
+    bind = Enum.KeyCode.Q,
+    risky = false,
+    keycallback = function()
+        local trashTalk = {
+            "bro aiming at the moon?",
+            "nice try… but no",
+            "outplayed lol",
+            "bro folding like paper",
+            "you lagging or skill issue?",
+            "I wasn’t even trying",
+            "my pet rock plays better",
+            "still loading?",
+            "this is embarrassing",
+            "why so slow?",
+            "NPC detected",
+            "bot behavior",
+            "bro forgot to enable brain",
+            "cry about it",
+            "rent free",
+            "you good? hello?",
+            "bro blinked and died",
+            "touch grass pls",
+            "your aim is on vacation",
+            "deleted from existence",
+            "too easy",
+            "bro thinks he's him",
+            "respawn and try again",
+            "what was the plan??",
+            "you're not serious right?",
+            "bro playing on toaster",
+            "outskilled",
+            "nah this can't be real",
+            "thanks for the free kill",
+            "matchmaking did you dirty",
+            "bro panicked",
+            "gg = get good",
+            "who are you aiming at??",
+            "I’ll wait until you hit one shot",
+            "lost in the sauce",
+            "bro moving in slow motion",
+            "don’t uninstall pls 😭",
+            "no way you missed that",
+            "your reactions expired",
+            "I’m playing with 1 FPS and still winning",
+            "bro fighting ghosts",
+            "aim.exe has stopped working",
+            "I sneezed and won",
+            "how are you losing this?",
+            "bro playing with oven controls",
+        }
+
+        -- Отправка случайного сообщения
+        local ChatEvent = game.ReplicatedStorage.Chat.ChatEvents.SayMessage
+        ChatEvent:FireServer(trashTalk[math.random(#trashTalk)], "All")
+        print("Trash talk sent")
+    end
 })
 
 
