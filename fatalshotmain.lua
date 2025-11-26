@@ -49,9 +49,33 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drill
 library:init()
 
 local randomWord = RandomNameList[math.random(#RandomNameList)]
-local Window = library.NewWindow({
+local mainwindow = library.NewWindow({
     title = "FatalShot | " .. randomWord,
     size = UDim2.new(0, 525, 0, 650)
 })
 
+local tabs = {
+    aimtab = mainwindow:AddTab("Aim"),
+	esptab = mainwindow:AddTab("Esp"),
+	aatab = mainwindow:AddTab("Anti-Aim"),
+	misctab = mainwindow:AddTab("Misc"),
+	Settings = library:CreateSettingsTab(mainwindow),
+}
+
+local sections = {
+	-- aim tab sections
+	aimsection = tabs.aimtab:AddSection("Aim", 1),
+	fov = tabs.aimtab:AddSection("Fov", 2),
+	-- esp tab sections
+	espsection = tabs.esptab:AddSection("Player Esp", 1),
+	weaponssection = tabs.esptab:AddSection("Player Chams", 2),
+	espsection = tabs.esptab:AddSection("Items esp", 1),
+	chams = tabs.esptab:AddSection("Items chams", 2),
+	-- aa tab sections
+	aimsection = tabs.aatab:AddSection("Aim", 1),
+	fakepitchsection = tabs.aatab:AddSection("Fake Pitch", 2),
+	-- misc tab sections
+	another = tabs.misctab:AddSection("Another", 1),
+	sounds = tabs.misctab:AddSection("Soon...", 2),
+}
 
