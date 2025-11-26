@@ -61,14 +61,14 @@ local sections = {
 	soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-sections.misctab:AddBind({
-    text = "Keybind",
+sections.anothersection:AddBind({
+    text = "TrashTalk",
     flag = "Key_1",
     nomouse = true,
     noindicator = true,
     tooltip = "Tooltip1",
     mode = "toggle",
-    bind = Enum.KeyCode.Q,
+    bind = Enum.KeyCode.H,
     risky = false,
     keycallback = function(v)
         local trashTalk = {
