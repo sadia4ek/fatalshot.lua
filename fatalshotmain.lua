@@ -48,11 +48,10 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drill
 
 library:init()
 
-local randomWord = WordList[math.random(#WordList)]
-
+local randomWord = RandomNameList[math.random(#RandomNameList)]
 local Window = library.NewWindow({
-	title = "FatalShot | " .. randomWord,
-	size = UDim2.new(0, 525, 0, 650)
+    title = "FatalShot | " .. randomWord,
+    size = UDim2.new(0, 525, 0, 650)
 })
 
 
