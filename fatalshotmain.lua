@@ -38,30 +38,30 @@ local mainwindow = library.NewWindow({
 
 local tabs = {
     aimtab = mainwindow:AddTab("Aim"),
-	esptab = mainwindow:AddTab("Esp"),
-	aatab = mainwindow:AddTab("Anti-Aim"),
-	misctab = mainwindow:AddTab("Misc"),
-	Settings = library:CreateSettingsTab(mainwindow),
+    esptab = mainwindow:AddTab("Esp"),
+    aatab = mainwindow:AddTab("Anti-Aim"),
+    misctab = mainwindow:AddTab("Misc"),
+    Settings = library:CreateSettingsTab(mainwindow),
 }
 
 local sections = {
-	-- aim tab sections
-	aimsection = tabs.aimtab:AddSection("Aim", 1),
-	fov = tabs.aimtab:AddSection("Fov", 2),
-	-- esp tab sections
-	espsection = tabs.esptab:AddSection("Player Esp", 1),
-	weaponssection = tabs.esptab:AddSection("Player Chams", 2),
-	espsection = tabs.esptab:AddSection("Items esp", 1),
-	chams = tabs.esptab:AddSection("Items chams", 2),
-	-- aa tab sections
-	aimsection = tabs.aatab:AddSection("Aim", 1),
-	fakepitchsection = tabs.aatab:AddSection("Fake Pitch", 2),
-	-- misc tab sections
-	anothersect = tabs.misctab:AddSection("Another", 1),
-	soon = tabs.misctab:AddSection("Soon...", 2),
+    -- aim tab sections
+    aim_main = tabs.aimtab:AddSection("Aim", 1),
+    fov = tabs.aimtab:AddSection("Fov", 2),
+    -- esp tab sections
+    esp_players = tabs.esptab:AddSection("Player Esp", 1),
+    esp_chams = tabs.esptab:AddSection("Player Chams", 2),
+    esp_items = tabs.esptab:AddSection("Items esp", 3),
+    chams_items = tabs.esptab:AddSection("Items chams", 4),
+    -- aa tab sections
+    aa_aim = tabs.aatab:AddSection("Aim", 1),
+    fakepitch = tabs.aatab:AddSection("Fake Pitch", 2),
+    -- misc tab sections
+    another = tabs.misctab:AddSection("Another", 1),
+    soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-sections.anothersect:AddBind({
+sections.another:AddBind({
     text = "TrashTalk",
     flag = "tht",
     nomouse = false,
