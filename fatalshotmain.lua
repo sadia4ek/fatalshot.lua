@@ -71,7 +71,7 @@ sections.Section1:AddBind({
     bind = Enum.KeyCode.Q,
     risky = false,
     keycallback = function(v)
-        local trashTalk = {
+        local trashTalkword = {
             "bro aiming at the moon?",
             "nice try… but no",
             "outplayed lol",
@@ -118,11 +118,13 @@ sections.Section1:AddBind({
             "how are you losing this?",
             "bro playing with oven controls",
         }
-
-        -- Отправка случайного сообщения
-        local ChatEvent = game.ReplicatedStorage.Chat.ChatEvents.SayMessage
-        ChatEvent:FireServer(trashTalk[math.random(#trashTalk)], "All")
-        print("Trash talk sent")
+        if v then
+            -- Get random message from table
+            local randomMsg = trashTalkword[math.random(1, #trashTalkword)]
+            
+            -- Send to game chat
+            game:GetService("ReplicatedStorage").TextChatService.SayMessageRequest:FireServer(randomMsg, "All")
+        end
     end
 })
 
