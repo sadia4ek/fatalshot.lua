@@ -61,16 +61,16 @@ local sections = {
     soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-local bind = sections.another:AddToggle({
-    text = "TrashTalk",
-    flag = "Key_1",
-    nomouse = true,
-    noindicator = true,
-    tooltip = "Send random trash talk in chat",
-    mode = "toggle",
-    bind = Enum.KeyCode.H,
-    risky = false,
-    keycallback = function(v)
+sections.Section1:AddBind({
+	text = "TrashTalk",
+	flag = "trashtalk",
+	nomouse = true,
+	noindicator = true,
+	tooltip = "Send random message on chat",
+	mode = "toggle",
+	bind = Enum.KeyCode.Q,
+	risky = false,
+	keycallback = function(v)
 	local trashTalk = {
 	    "bro aiming at the moon?",
 	    "nice try… but no",
