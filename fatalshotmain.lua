@@ -99,7 +99,7 @@ sections.Section1:AddBind({
             "thanks for the free kill",
             "matchmaking did you dirty",
             "bro panicked",
-            "GG = get good again",
+            "gg = get good",
             "who are you aiming at??",
             "I’ll wait until you hit one shot",
             "lost in the sauce",
