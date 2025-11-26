@@ -57,17 +57,17 @@ local sections = {
 	aimsection = tabs.aatab:AddSection("Aim", 1),
 	fakepitchsection = tabs.aatab:AddSection("Fake Pitch", 2),
 	-- misc tab sections
-	anothersection = tabs.misctab:AddSection("Another", 1),
+	anothersect = tabs.misctab:AddSection("Another", 1),
 	soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-sections.anothersection:AddBind({
+sections.anothersect:AddBind({
     text = "TrashTalk",
-    flag = "Key_1",
-    nomouse = true,
-    noindicator = true,
-    tooltip = "Tooltip1",
-    mode = "toggle",
+    flag = "tht",
+    nomouse = false,
+    noindicator = false,
+    tooltip = "Say random message on bind",
+    mode = "Toogle",
     bind = Enum.KeyCode.H,
     risky = false,
     keycallback = function(v)
