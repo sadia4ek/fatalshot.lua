@@ -61,7 +61,7 @@ local sections = {
     soon = tabs.misctab:AddSection("Soon...", 2),
 }
 
-local bind = sections.another:AddBind({
+local bind = sections.another:AddToggle({
     text = "TrashTalk",
     flag = "Key_1",
     nomouse = true,
