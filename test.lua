@@ -1,40 +1,26 @@
 -- Простой скрипт для скачивания фото в Roblox
 
-local imageUrl = "https://github.com/sadia4ek/fatalshot.lua/blob/main/image.png?raw=true" -- Замени на ссылку на фото
+local imageUrl = "https://example.com/image.jpg" -- Замени на ссылку на фото
 
--- Функция для скачивания
-local function downloadImage(url)
-    -- Создаем объект для загрузки
-    local image = Instance.new("ImageLabel")
-    
-    -- Загружаем изображение
-    image.Image = url
-    
-    -- Ждем загрузки
-    repeat
-        wait(0.1)
-    until image.ImageLoaded or image.ImageRectOffset
-    
-    print("Фото скачано!")
-    
-    return image
-end
-
--- Используем
-local myImage = downloadImage(imageUrl)
-
--- Можно вставить в GUI
+-- Создаем GUI для показа фото
 local player = game.Players.LocalPlayer
 local gui = player:WaitForChild("PlayerGui")
 
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 500, 0, 300)
-frame.Position = UDim2.new(0.5, -250, 0.5, -150)
-frame.BackgroundColor3 = Color3.new(1, 1, 1)
-frame.Parent = gui
+-- Создаем экран
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = gui
 
-myImage.Size = UDim2.new(1, 0, 1, 0)
-myImage.BackgroundTransparency = 1
-myImage.Parent = frame
+-- Создаем ImageLabel
+local image = Instance.new("ImageLabel")
+image.Size = UDim2.new(0, 500, 0, 300)
+image.Position = UDim2.new(0.5, -250, 0.5, -150)
+image.BackgroundColor3 = Color3.new(1, 1, 1)
+image.Image = imageUrl  -- Устанавливаем URL
+image.Parent = screenGui
 
-print("Фото открыто!")
+print("Пытаюсь загрузить фото...")
+
+-- Просто ждем немного
+wait(2)
+
+print("Фото должно отобразиться")
