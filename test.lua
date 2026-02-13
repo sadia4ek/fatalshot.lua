@@ -1,26 +1,93 @@
--- Простой скрипт для скачивания фото в Roblox
+-- LocalScript для загрузки картинки с GitHub
 
-local imageUrl = "https://example.com/image.jpg" -- Замени на ссылку на фото
-
--- Создаем GUI для показа фото
 local player = game.Players.LocalPlayer
 local gui = player:WaitForChild("PlayerGui")
 
--- Создаем экран
+-- Создаем GUI
 local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "GitHubPhoto"
 screenGui.Parent = gui
 
--- Создаем ImageLabel
+-- Контейнер с возможностью перемещения
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 600, 0, 400)
+frame.Position = UDim2.new(0.5, -300, 0.5, -200)
+frame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+frame.Active = true
+frame.Draggable = true  -- Можно перемещать
+frame.Parent = screenGui
+
+-- Заголовок
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+title.Text = "Картинка с GitHub (перетащи меня)"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.Font = Enum.Font.SourceSans
+title.TextSize = 18
+title.Parent = frame
+
+-- Кнопка закрытия
+local closeBtn = Instance.new("TextButton")
+closeBtn.Size = UDim2.new(0, 30, 0, 30)
+closeBtn.Position = UDim2.new(1, -35, 0, 0)
+closeBtn.Text = "X"
+closeBtn.TextColor3 = Color3.new(1, 1, 1)
+closeBtn.BackgroundColor3 = Color3.new(1, 0, 0)
+closeBtn.Parent = frame
+
+closeBtn.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
+
+-- Место для картинки
 local image = Instance.new("ImageLabel")
-image.Size = UDim2.new(0, 500, 0, 300)
-image.Position = UDim2.new(0.5, -250, 0.5, -150)
-image.BackgroundColor3 = Color3.new(1, 1, 1)
-image.Image = imageUrl  -- Устанавливаем URL
-image.Parent = screenGui
+image.Size = UDim2.new(1, -20, 1, -50)
+image.Position = UDim2.new(0, 10, 0, 40)
+image.BackgroundColor3 = Color3.new(0, 0, 0)
+image.Parent = frame
 
-print("Пытаюсь загрузить фото...")
+-- Текст загрузки
+local loadingText = Instance.new("TextLabel")
+loadingText.Size = UDim2.new(1, 0, 1, 0)
+loadingText.Text = "Загрузка картинки с GitHub..."
+loadingText.TextColor3 = Color3.new(1, 1, 1)
+loadingText.BackgroundTransparency = 1
+loadingText.Parent = image
 
--- Просто ждем немного
-wait(2)
+-- Функция загрузки с GitHub
+local function loadFromGitHub()
+    -- Прямая ссылка на картинку в GitHub
+    -- Формат: https://raw.githubusercontent.com/用户名/仓库名/分支/путь/к/картинке.jpg
+    local githubUrl = "https://raw.githubusercontent.com/sadia4ek/fatalshot.lua/refs/heads/main/image.png"
+    
+    -- Пример рабочей картинки (замени на свою):
+    -- local githubUrl = "https://raw.githubusercontent.com/torvalds/linux/master/logo.png"
+    
+    -- Пробуем загрузить
+    local success, result = pcall(function()
+        return game:HttpGet(githubUrl)
+    end)
+    
+    if success then
+        loadingText.Text = "Загрузка завершена!"
+        wait(1)
+        loadingText.Visible = false
+        
+        -- Показываем картинку
+        image.Image = githubUrl
+    else
+        loadingText.Text = "Ошибка загрузки :("
+        loadingText.TextColor3 = Color3.new(1, 0, 0)
+    end
+end
 
-print("Фото должно отобразиться")
+-- Запускаем загрузку
+loadFromGitHub()
+
+-- Проверка загрузки картинки
+image:GetPropertyChangedSignal("Image"):Connect(function()
+    if image.Image ~= "" then
+        print("Картинка загружена!")
+    end
+end)
