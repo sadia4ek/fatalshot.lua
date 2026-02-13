@@ -1,6 +1,6 @@
 -- Простой скрипт для скачивания фото в Roblox
 
-local imageUrl = "https://example.com/image.jpg" -- Замени на ссылку на фото
+local imageUrl = "https://github.com/sadia4ek/fatalshot.lua/blob/main/image.png?raw=true" -- Замени на ссылку на фото
 
 -- Функция для скачивания
 local function downloadImage(url)
